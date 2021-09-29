@@ -1,2 +1,6 @@
 # Project exclude paths
 /.gradle/
+/.idea/
+/botkey.txt
+/session_info.json
+/build/
