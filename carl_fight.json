@@ -1,0 +1,1762 @@
+{
+	"classes": [
+		{
+			"className": "Class Artificer",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "uses *gun*! It deals # damage to Carl!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *shocking grasp* on Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with *Tasha's caustic brew* and deals # damage!",
+							"dice": "3d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "uses *gun*! It deals # damage to Carl!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *shocking grasp* on Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with *Tasha's caustic brew* and deals # damage!",
+							"dice": "3d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "uses *gun*! It deals # damage to Carl!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *shocking grasp* on Carl, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with *Tasha's caustic brew* and deals # damage!",
+							"dice": "5d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *heat metal* on Carl and melts his armor for # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "uses *gun*! It deals # damage to Carl!",
+							"dice": "1d10",
+							"extra": 1,
+							"addMod": false
+						},
+						{
+							"message": "casts *shocking grasp* on Carl, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "crafts an explosive, blowing Carl up for # damage!",
+							"dice": "6d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *heat metal* on Carl and melts his armor for # damage!",
+							"dice": "4d8",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "uses *gun*! It deals # damage to Carl!",
+							"dice": "1d10",
+							"extra": 1,
+							"addMod": false
+						},
+						{
+							"message": "casts *shocking grasp* on Carl, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "crafts an explosive, blowing Carl up for # damage!",
+							"dice": "8d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *heat metal* on Carl and melts his armor for # damage!",
+							"dice": "5d8",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Barbarian",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "hacks into Carl with a greataxe for # damage!",
+							"dice": "1d12",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a hand-axe at Carl and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with a morningstar, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "hacks into Carl with a greataxe for # damage!",
+							"dice": "1d12",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a hand-axe at Carl and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with a morningstar, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "hacks into Carl with a greataxe for # damage!",
+							"dice": "1d12",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a hand-axe at Carl and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "lands a savage multi-attack on Carl with a morningstar, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "hacks into Carl with a greataxe for # damage!",
+							"dice": "1d12",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a hand-axe at Carl and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "lands a savage multi-attack on Carl with a morningstar, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws an entire longsword at Carl which deals # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "hacks into Carl with a greataxe multi-attack for # damage!",
+							"dice": "2d12",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a hand-axe at Carl and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "lands a savage multi-attack on Carl with a morningstar, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws an entire longsword at Carl which deals # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Bard",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "insults Carl using *vicious mockery*, hurting his feelings for # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "stabs Carl with a rapier, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *dissonant whispers* on Carl to deal # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "insults Carl using *vicious mockery*, hurting his feelings for # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "stabs Carl with a rapier, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *dissonant whispers* on Carl to deal # damage!",
+							"dice": "3d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "insults Carl using *vicious mockery*, hurting his feelings for # damage!",
+							"dice": "2d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "stabs Carl with a rapier, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *dissonant whispers* on Carl to deal # damage!",
+							"dice": "3d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "places a *cloud of daggers* on Carl, slicing him for # damage!",
+							"dice": "4d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "insults Carl using *vicious mockery*, hurting his feelings for # damage!",
+							"dice": "2d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "stabs Carl with a rapier, dealing # damage!",
+							"dice": "1d8",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "casts *dissonant whispers* on Carl to deal # damage!",
+							"dice": "4d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "places a *cloud of daggers* on Carl, slicing him for # damage!",
+							"dice": "6d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "insults Carl using *vicious mockery*, hurting his feelings for # damage!",
+							"dice": "3d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "stabs Carl with a rapier, dealing # damage!",
+							"dice": "1d8",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "uses *phantasmal killer* on Carl, wracking his mind for # damage!",
+							"dice": "4d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "places a *cloud of daggers* on Carl, slicing him for # damage!",
+							"dice": "6d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Cleric",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "burns Carl with *sacred flame* for # radiant damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *inflict wounds* on Carl, dealing # damage!",
+							"dice": "3d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with a mace for # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "burns Carl with *sacred flame* for # radiant damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *inflict wounds* on Carl, dealing # damage!",
+							"dice": "4d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with a mace for # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "burns Carl with *sacred flame* for # radiant damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *inflict wounds* on Carl, dealing # damage!",
+							"dice": "4d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with a mace for # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "creates and strikes Carl with a *spiritual weapon* which deals # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "burns Carl with *sacred flame* for # radiant damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *inflict wounds* on Carl, dealing # damage!",
+							"dice": "5d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with a mace for # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "creates and strikes Carl with a *spiritual weapon* which deals # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "burns Carl with *sacred flame* for # radiant damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *inflict wounds* on Carl, dealing # damage!",
+							"dice": "6d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with a mace for # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "burns Carl with *flame strike*, dealing # damage!",
+							"dice": "8d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Druid",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "slashes Carl with a scimitar for # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "whips Carl with a *thorn whip* which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hurls an *ice knife* at Carl, dealing # damage!",
+							"dice": "1d10 2d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "slashes Carl with a scimitar for # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "whips Carl with a *thorn whip* which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hurls an *ice knife* at Carl, dealing # damage!",
+							"dice": "1d10 3d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "slashes Carl with a scimitar for # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "whips Carl with a *thorn whip* which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hurls an *ice knife* at Carl, dealing # damage!",
+							"dice": "1d10 4d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "places a *spike growth* beneath Carl and deals # damage as he moves!",
+							"dice": "4d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "slashes Carl with a scimitar for # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "whips Carl with a *thorn whip* which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "uses *call lightning* to strike Carl for # damage!",
+							"dice": "3d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "places a *spike growth* beneath Carl and deals # damage as he moves!",
+							"dice": "6d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "slashes Carl with a scimitar for # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "whips Carl with a *thorn whip* which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "uses *maelstrom* to batter Carl for # damage!",
+							"dice": "12d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "places a *spike growth* beneath Carl and deals # damage as he moves!",
+							"dice": "6d4",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Fighter",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "slashes Carl with a greatsword for # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with a warhammer, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "slashes Carl with a greatsword for # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with a warhammer, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "slashes Carl with a greatsword for # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl twice with a warhammer, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "slashes Carl with a greatsword for # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl twice with a warhammer, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "shoots Carl with a heavy crossbow for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "slashes Carl with a greatsword multi-attack for # damage!",
+							"dice": "4d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl twice with a warhammer, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "shoots Carl with a +1 heavy crossbow for # damage!",
+							"dice": "1d10",
+							"extra": 1,
+							"addMod": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Monk",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "strikes Carl with an unarmed attack, dealing # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "fires a rock at Carl with a sling, dealing # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "stabs Carl with a shortsword and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "strikes Carl with an unarmed attack, dealing # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "fires a rock at Carl with a sling, dealing # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "stabs Carl with a shortsword and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "strikes Carl with an unarmed attack, dealing # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "fires a rock at Carl with a sling, dealing # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "stabs Carl with a shortsword and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a dart at Carl which deals # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "strikes Carl with an unarmed attack, dealing # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "fires a rock at Carl with a sling, dealing # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "stabs Carl with a shortsword and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a dart at Carl which deals # damage!",
+							"dice": "1d4",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "strikes Carl with an unarmed attack, dealing # damage!",
+							"dice": "1d8",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "fires a rock at Carl with a +1 sling, dealing # damage!",
+							"dice": "1d4",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "stabs Carl with a shortsword and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "throws a +1 dart at Carl which deals # damage!",
+							"dice": "1d4",
+							"extra": 1,
+							"addMod": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Paladin",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "slices Carl with a longsword, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "slices Carl with a longsword, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with *thunderous smite* for # damage!",
+							"dice": "1d8 2d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "slices Carl twice with a longsword, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with *thunderous smite* for # damage!",
+							"dice": "1d8 2d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "slices Carl twice with a longsword, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with *thunderous smite* for # damage!",
+							"dice": "1d8 3d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with *blinding smite* for # damage!",
+							"dice": "1d8 3d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "slices Carl twice with a longsword, dealing # damage!",
+							"dice": "2d8",
+							"extra": 3,
+							"addMod": true
+						},
+						{
+							"message": "impales Carl with a javelin and deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *destructive wave* targeting Carl, dealing # damage!",
+							"dice": "10d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "strikes Carl with *blinding smite* for # damage!",
+							"dice": "1d8 4d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Ranger",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "shoots Carl with a longbow, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "slashes Carl with a glaive for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "shoots Carl with a longbow, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "slashes Carl with a glaive for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "uses *hail of thorns* to rain thorns on Carl which deal # damage!",
+							"dice": "1d8 1d10",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "shoots Carl twice with a longbow, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "slashes Carl with a glaive for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "uses *hail of thorns* to rain thorns on Carl which deal # damage!",
+							"dice": "1d8 1d10",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "shoots Carl twice with a longbow, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "slashes Carl with a glaive for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "uses *hail of thorns* to rain thorns on Carl which deal # damage!",
+							"dice": "1d8 2d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *lightning arrow* targeting Carl and deals # damage!!",
+							"dice": "4d8",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "shoots Carl twice with a longbow, dealing # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "slashes Carl with a glaive multi-attack for # damage!",
+							"dice": "2d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "uses *hail of thorns* to rain thorns on Carl which deal # damage!",
+							"dice": "1d8 3d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *lightning arrow* targeting Carl and deals # damage!!",
+							"dice": "5d8",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Rogue",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "uses a poisoned dagger on Carl, dealing # damage!",
+							"dice": "2d4",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "attacks Carl with a shortsword which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "fires a light crossbow bolt at Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "uses a poisoned dagger on Carl, dealing # damage!",
+							"dice": "1d4 1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "attacks Carl with a shortsword which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "fires a light crossbow bolt at Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "uses a poisoned dagger on Carl, dealing # damage!",
+							"dice": "1d4 2d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "attacks Carl with a shortsword which deals # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "fires a light crossbow bolt at Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "shoots Carl with dual-wielded +1 hand crossbows which deal # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "uses a poisoned dagger on Carl, dealing # damage!",
+							"dice": "1d4 3d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "attacks Carl with a +1 shortsword which deals # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "fires a +1 light crossbow bolt at Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "shoots Carl with dual-wielded +1 hand crossbows which deal # damage!",
+							"dice": "2d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "uses a poisoned dagger on Carl, dealing # damage!",
+							"dice": "1d4 4d6",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "attacks Carl with a +1 shortsword which deals # damage!",
+							"dice": "1d6",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "fires a +1 light crossbow bolt at Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "shoots Carl with dual-wielded +1 hand crossbows which deal # damage!",
+							"dice": "2d6",
+							"extra": 2,
+							"addMod": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Sorcerer",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "shoots Carl with a light crossbow for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "hits Carl with a *fire bolt* and deals # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *chaos bolt*, hitting Carl for # damage!",
+							"dice": "2d8 1d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "shoots Carl with a light crossbow for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "hits Carl with a *fire bolt* and deals # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *chaos bolt*, hitting Carl for # damage!",
+							"dice": "2d8 2d6",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "shoots Carl with a light crossbow for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "hits Carl with a *fire bolt* and deals # damage!",
+							"dice": "2d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *chaos bolt*, hitting Carl for # damage!",
+							"dice": "2d8 3d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *erupting earth* beneath Carl, dealing # damage!",
+							"dice": "3d12",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "shoots Carl with a light crossbow for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "hits Carl with a *fire bolt* and deals # damage!",
+							"dice": "2d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hits Carl with a *vitriolic sphere* for # damage!",
+							"dice": "10d4",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *erupting earth* beneath Carl, dealing # damage!",
+							"dice": "4d12",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "shoots Carl with a +1 light crossbow for # damage!",
+							"dice": "1d8",
+							"extra": 1,
+							"addMod": true
+						},
+						{
+							"message": "hits Carl with a *fire bolt* and deals # damage!",
+							"dice": "3d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "targets Carl with *cone of cold* for # damage!",
+							"dice": "8d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *erupting earth* beneath Carl, dealing # damage!",
+							"dice": "5d12",
+							"extra": 0,
+							"addMod": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Warlock",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "casts *eldritch blast* and hits Carl for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *witch bolt* and hits Carl for # damage!",
+							"dice": "1d12",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "smacks Carl with a mace, dealing # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "casts *eldritch blast* and hits Carl for # damage!",
+							"dice": "1d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *witch bolt* and hits Carl for # damage!",
+							"dice": "2d12",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "smacks Carl with a mace, dealing # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "casts *eldritch blast* and hits Carl for # damage!",
+							"dice": "2d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *witch bolt* and hits Carl for # damage!",
+							"dice": "2d12",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *shatter* on Carl and deals # thunder damage to him!",
+							"dice": "3d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "smacks Carl with a mace, dealing # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "casts *eldritch blast* and hits Carl for # damage!",
+							"dice": "2d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "strikes Carl with *vampiric touch*, dealing # damage!",
+							"dice": "3d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *shatter* on Carl and deals # thunder damage to him!",
+							"dice": "4d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "smacks Carl with a mace, dealing # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "casts *eldritch blast* and hits Carl for # damage!",
+							"dice": "3d10",
+							"extra": 0,
+							"addMod": true
+						},
+						{
+							"message": "casts *blight* on Carl to deal # necrotic damage!",
+							"dice": "8d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *shatter* on Carl and deals # thunder damage to him!",
+							"dice": "5d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "smacks Carl with a mace, dealing # damage!",
+							"dice": "1d6",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"className": "Class Wizard",
+			"levels": [
+				{
+					"level": 1,
+					"attacks": [
+						{
+							"message": "casts *ray of frost*, chilling Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "throws a *chromatic orb* at Carl, dealing # damage!",
+							"dice": "3d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "looses a crossbow bolt at Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 2,
+					"attacks": [
+						{
+							"message": "casts *ray of frost*, chilling Carl for # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "throws a *chromatic orb* at Carl, dealing # damage!",
+							"dice": "4d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "looses a crossbow bolt at Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 3,
+					"attacks": [
+						{
+							"message": "casts *ray of frost*, chilling Carl for # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "throws a *chromatic orb* at Carl, dealing # damage!",
+							"dice": "4d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "uses *scorching ray* on Carl and deals # damage!",
+							"dice": "6d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "looses a crossbow bolt at Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 4,
+					"attacks": [
+						{
+							"message": "casts *ray of frost*, chilling Carl for # damage!",
+							"dice": "2d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "hurls *minute meteors* at Carl, striking him for # damage!",
+							"dice": "9d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "uses *scorching ray* on Carl and deals # damage!",
+							"dice": "8d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "looses a crossbow bolt at Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				},
+				{
+					"level": 5,
+					"attacks": [
+						{
+							"message": "casts *ray of frost*, chilling Carl for # damage!",
+							"dice": "3d8",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "casts *immolation* on Carl, burning him for # damage!",
+							"dice": "12d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "uses *scorching ray* on Carl and deals # damage!",
+							"dice": "10d6",
+							"extra": 0,
+							"addMod": false
+						},
+						{
+							"message": "looses a crossbow bolt at Carl, dealing # damage!",
+							"dice": "1d8",
+							"extra": 0,
+							"addMod": true
+						}
+					]
+				}
+			]
+		}
+	]
+}
