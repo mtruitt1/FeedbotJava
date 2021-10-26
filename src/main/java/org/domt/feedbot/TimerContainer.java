@@ -19,6 +19,14 @@ public class TimerContainer {
                 RunLFGPurge(maxAgeSecs);
             }
         }, 0, checkFreqSecs*1000);
+
+        Timer brewThreads = new Timer();
+        brewThreads.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                CheckHomebrewThreads();
+            }
+        }, 0, 60*60*1000);
     }
 
     public static void RunLFGPurge(long maxAgeSecs) {
@@ -50,5 +58,9 @@ public class TimerContainer {
                 }
             }
         }
+    }
+
+    public static void CheckHomebrewThreads() {
+
     }
 }
