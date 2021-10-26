@@ -1,5 +1,10 @@
 plugins {
     id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'org.domt.feedbot.Main'
 }
 
 group 'org.domt.feedbot'
