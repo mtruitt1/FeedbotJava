@@ -56,8 +56,8 @@ public class SlashCommandListener implements SlashCommandCreateListener {
             case "zombiewave":
                 CarlFightStuff.ZombieWave(slashCommandInteraction);
                 break;
-            case "setanswer":
-                CarlFightStuff.SetAnswer(slashCommandInteraction);
+            case "setchannel":
+                CarlFightStuff.SetChannel(slashCommandInteraction);
                 break;
         }
     }

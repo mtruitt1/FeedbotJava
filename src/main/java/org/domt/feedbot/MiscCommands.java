@@ -28,7 +28,7 @@ public class MiscCommands {
     }
 
     public static void ChangeProunouns(SlashCommandInteraction slashCommandInteraction) {
-        if (slashCommandInteraction.getFirstOption().get().getName().equalsIgnoreCase("clear")) {
+        if (slashCommandInteraction.getOptions().get(0).getName().equalsIgnoreCase("clear")) {
             List<Role> toRemove = new ArrayList<>();
             for (Role role : slashCommandInteraction.getUser().getRoles(Main.activeServer)) {
                 if (pronounOptions.contains(role.getName())) {

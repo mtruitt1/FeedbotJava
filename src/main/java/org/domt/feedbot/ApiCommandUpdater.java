@@ -42,7 +42,7 @@ public class ApiCommandUpdater {
 
         showrunnerCommands.put("carlstats", CarlFightStuff.CarlStatsBuilder());
         showrunnerCommands.put("zombiewave", CarlFightStuff.ZombieWaveBuilder());
-        showrunnerCommands.put("setanswer", CarlFightStuff.SetAnswerBuilder());
+        showrunnerCommands.put("setchannel", CarlFightStuff.SetChannelBuilder());
 
         fightCommands.putAll(everyoneCommands);
         fightCommands.putAll(fighterCommands);

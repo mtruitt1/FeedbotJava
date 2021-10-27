@@ -31,8 +31,12 @@ public class OnReactionAdded implements ReactionAddListener {
             ColorRoleSelection.ColorRoleSelectionChange(user, emoji, true);
             return;
         }
-        if (message.getContent().contains("ZOMBIES")) {
-            CarlFightStuff.ZombieReaction(user, emoji, message, true);
+        try {
+            if (message.getContent().contains("ZOMBIES")) {
+                CarlFightStuff.ZombieReaction(user, emoji, message, true);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }

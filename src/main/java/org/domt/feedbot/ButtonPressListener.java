@@ -13,6 +13,10 @@ public class ButtonPressListener implements ButtonClickListener {
             SuggestionCommands.UnsendMessage(buttonInteraction);
             return;
         }
+        if (buttonID.contains("guess")) {
+            CarlFightStuff.GuessRespond(buttonInteraction);
+            return;
+        }
         if (buttonID.contains("sabo")) {
             CarlFightStuff.SabotageButton(buttonInteraction);
             return;

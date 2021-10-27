@@ -129,7 +129,12 @@ public class CarlFightStuff {
             }
         }, 0, 60*1000);
 
-        fightChannel = Main.activeServer.getTextChannelsByName("fight").get(0);
+        try {
+            fightChannel = Main.activeServer.getTextChannelsByName("fight").get(0);
+        } catch (Exception e) {
+            Main.sandbox.sendMessage("Couldn't find a good first setting fight channel. Setting sandbox (Sorry)");
+            fightChannel = Main.sandbox;
+        }
 
         List<SelectMenuOption> channelChoices = new ArrayList<>();
         for (ServerTextChannel channel : Main.activeServer.getTextChannels()) {
@@ -138,7 +143,7 @@ public class CarlFightStuff {
 
         new MessageBuilder()
                 .append("Carl fight is fully finished setting up!\nThe default fight channel is set to " + fightChannel.asServerTextChannel().get().getMentionTag() +
-                        "\nUse the following dropdown to change the channel if that is incorrect:")
+                        "\nUse the following dropdown or `/setchannel` to change the channel if that is incorrect:")
                         .addComponents(ActionRow.of(
                                 SelectMenu.create("channelSelect", "Channel...", 1, 1, channelChoices)
                         ))
@@ -318,18 +323,17 @@ public class CarlFightStuff {
                         .respond();
             } else {
                 String answer = slashCommandInteraction.getOptionStringValueByName("answer").orElse(null);
-                if (answer.equals(currentAnswer)) {
-                    answersNeeded--;
-                    slashCommandInteraction.createImmediateResponder()
-                            .setContent("You've entered the correct answer! In the interest of keeping the event fun for others, please do not share this answer with those who haven't solved the puzzle!")
-                            .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
-                            .respond();
-                } else {
-                    slashCommandInteraction.createImmediateResponder()
-                            .setContent("Sorry, but that answer isn't correct.")
-                            .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
-                            .respond();
-                }
+                slashCommandInteraction.createImmediateResponder()
+                        .setContent("Thanks for submitting your guess! If you're right, you'll receive a DM soon!\nIn the interest of keeping the puzzles fun for others, please don't share the solution if you're right!")
+                        .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
+                        .respond();
+                new MessageBuilder()
+                        .setContent("**Carl puzzle**\nGuess from " + slashCommandInteraction.getUser().getMentionTag() + ": " + answer)
+                                .addComponents(ActionRow.of(
+                                        Button.success("guessCorrect", "Correct guess!"),
+                                        Button.danger("guessFailure", "Incorrect guess")
+                                ))
+                                        .send(Main.sandbox);
             }
         } else {
             slashCommandInteraction.createImmediateResponder()
@@ -337,6 +341,24 @@ public class CarlFightStuff {
                     .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
                     .respond();
         }
+    }
+
+    public static void GuessRespond(ButtonInteraction buttonInteraction) {
+        User toMessage = buttonInteraction.getMessage().getMentionedUsers().get(0);
+        try {
+            if (buttonInteraction.getCustomId().equalsIgnoreCase("guessCorrect")) {
+                toMessage.sendMessage("Your guess was correct! Good work!");
+            } else {
+                toMessage.sendMessage("Your guess was incorrect. Feel free to head into the Halloween riddles channel for help or to talk about your process!");
+            }
+        } catch (Exception e) {
+            System.out.println("User could not be messaged");
+        }
+        buttonInteraction.createOriginalMessageUpdater().removeAllComponents().update();
+        buttonInteraction.createImmediateResponder()
+                .setContent("User has been messaged!")
+                .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
+                .respond();
     }
 
     //returns -20 on critical, -1 on fumble, otherwise returns positive only
@@ -389,7 +411,11 @@ public class CarlFightStuff {
         if (carlHealthBar != null) {
             carlHealthBar.delete();
         }
-        carlHealthBar = fightChannel.sendMessage(carlHealth).join();
+        try {
+            carlHealthBar = fightChannel.sendMessage(carlHealth).join();
+        } catch (Exception e) {
+            Main.sandbox.sendMessage("Can't sent messages to " + fightChannel.getMentionTag() + "!");
+        }
     }
 
     public static boolean CarlCounter(User user) {
@@ -1493,7 +1519,7 @@ public class CarlFightStuff {
                         .respond();
                 return;
             }
-            carlStats.replace(key, slashCommandInteraction.getOptionIntValueByName("value").get());
+            carlStats.replace(key, slashCommandInteraction.getOptionLongValueByName("value").get().intValue());
             slashCommandInteraction.createImmediateResponder()
                     .setContent("Set the selected stat! You can find output in " + Main.sandbox.getMentionTag())
                     .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
@@ -1528,19 +1554,19 @@ public class CarlFightStuff {
                     .respond();
         }
         slashCommandInteraction.createImmediateResponder()
-                .setContent("Attempting to send a wave of " + slashCommandInteraction.getOptionIntValueByName("size").get() + " zombies to " + toBlock.getMentionTag() + ".")
+                .setContent("Attempting to send a wave of " + slashCommandInteraction.getOptionLongValueByName("size").get() + " zombies to " + toBlock.getMentionTag() + ".")
                 .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
                 .respond();
+        if (!blockedChannels.contains(toBlock)) {
+            blockedChannels.add(toBlock);
+        }
         try {
-            if (!blockedChannels.contains(toBlock)) {
-                blockedChannels.add(toBlock);
-            }
-            toBlock.sendMessage(ZombieMessage(slashCommandInteraction.getOptionIntValueByName("size").get(), 0)).whenComplete((message, throwable) -> {
+            toBlock.sendMessage(ZombieMessage(slashCommandInteraction.getOptionLongValueByName("size").get().intValue(), 0)).whenComplete((message, throwable) -> {
                 message.addReaction("\u2694");
                 message.pin();
             });
         } catch (Exception e) {
-            System.out.println(e);
+            Main.sandbox.sendMessage("Couldn't send zombies to " + toBlock.getMentionTag() + "!\nError text: ```" + e + "```");
         }
     }
 
@@ -1578,6 +1604,7 @@ public class CarlFightStuff {
     }
 
     public static void ZombieReaction(User user, Emoji emoji, Message message, boolean added) {
+        System.out.println(user + " / " + emoji + " / " + message);
         if (added) {
             int userLevel = UserLevel(user);
             if (userLevel == 0) {
@@ -1632,20 +1659,24 @@ public class CarlFightStuff {
         }
     }
 
-    public static SlashCommandBuilder SetAnswerBuilder() {
-        return SlashCommand.with("setanswer", "Sets the answer for the daily riddle/puzzle.", Arrays.asList(
-                SlashCommandOption.create(SlashCommandOptionType.STRING, "answer", "The answer as a string.", true),
-                SlashCommandOption.create(SlashCommandOptionType.CHANNEL, "channel", "Where the answer has to be submitted.", true)
+    public static SlashCommandBuilder SetChannelBuilder() {
+        return SlashCommand.with("setchannel", "Sets the Carl fight channel", Arrays.asList(
+                SlashCommandOption.create(SlashCommandOptionType.CHANNEL, "channel", "What channel to use for the Carl fight", true)
         )).setDefaultPermission(false);
     }
 
-    public static void SetAnswer(SlashCommandInteraction slashCommandInteraction) {
-        currentAnswer = slashCommandInteraction.getOptionStringValueByName("answer").orElse("");
-        answerChannel = (ServerTextChannel) slashCommandInteraction.getOptionChannelValueByName("channel").orElse(null);
-        slashCommandInteraction.createImmediateResponder()
-                .setContent("Set the answer and answer channel to \""  + currentAnswer + "\" and " + answerChannel.getMentionTag())
-                .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
-                .respond();
-        Main.sandbox.sendMessage("Set the answer and answer channel to \""  + currentAnswer + "\" and " + answerChannel.getMentionTag());
+    public static void SetChannel(SlashCommandInteraction slashCommandInteraction) {
+        ServerTextChannel newFight = (ServerTextChannel) slashCommandInteraction.getOptionChannelValueByName("channel").orElse(null);
+        if (newFight.canYouSee() && newFight.canYouWrite()) {
+            slashCommandInteraction.createImmediateResponder()
+                    .setContent("Set to " + newFight.getMentionTag() + "!")
+                    .respond();
+            fightChannel = newFight;
+            NewFightChannel();
+        } else {
+            slashCommandInteraction.createImmediateResponder()
+                    .setContent("Couldn't set to " + newFight.getMentionTag() + "! Couldn't read/write channel!")
+                    .respond();
+        }
     }
 }

@@ -51,8 +51,12 @@ public class TimerContainer {
                 if (messageCreation.isBefore(maxAge)) {
                     User sendContent = message.getAuthor().asUser().orElse(null);
                     if (sendContent != null) {
-                        sendContent.sendMessage("Hello! Your post in the Discord of Many Things " + lfg.getMentionTag() + " channel has been deleted since it is older than the maximum lfg post age. Your message content is copied below in the event you wish to post again:");
-                        sendContent.sendMessage(message.getContent());
+                        try {
+                            sendContent.sendMessage("Hello! Your post in the Discord of Many Things " + lfg.getMentionTag() + " channel has been deleted since it is older than the maximum lfg post age. Your message content is copied below in the event you wish to post again:");
+                            sendContent.sendMessage(message.getContent());
+                        } catch (Exception e) {
+                            //ignore
+                        }
                     }
                     message.delete();
                 }
