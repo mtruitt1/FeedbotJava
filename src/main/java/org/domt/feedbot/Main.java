@@ -29,6 +29,18 @@ public class Main {
             e.printStackTrace();
             return;
         }
+        boolean fightActive = false;
+        try {
+            File f = new File("fightactive.txt");
+            FileReader fr = new FileReader(f);
+            BufferedReader inStream = new BufferedReader(fr);
+            String yesNo = inStream.readLine();
+            if (yesNo.equalsIgnoreCase("yes")) {
+                fightActive = true;
+            }
+        } catch (Exception e) {
+            fightActive = false;
+        }
         Gson gson = new GsonBuilder().setLenient().create();
         String json = "";
         try {
@@ -72,8 +84,11 @@ public class Main {
         rand = new Random();
         TimerContainer.StartLFGPurger(60*60, 60*60*24*14); //60*60 == 1 hour, 60*60*24*14 == 2 weeks
         OnMessageReceived.stickies = botInfo.HashStickies();
-        //CarlFightStuff.SetupFight();
-        ApiCommandUpdater.UpdateAllSlashCommands(false);
+        if (fightActive) {
+            CarlFightStuff.SetupFight();
+        } else {
+            ApiCommandUpdater.UpdateAllSlashCommands(false);
+        }
         api.addMessageCreateListener(new OnMessageReceived());
         ColorRoleSelection.SetColorRoleEmojiTable();
         api.addReactionAddListener(new OnReactionAdded());

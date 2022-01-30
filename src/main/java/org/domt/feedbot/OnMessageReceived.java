@@ -17,7 +17,7 @@ public class OnMessageReceived implements MessageCreateListener {
             return;
         }
         if (CarlFightStuff.fightActive && channel == CarlFightStuff.fightChannel && !event.getMessage().getContent().contains("CARL HEALTH")) {
-            CarlFightStuff.updateNeeded = true;
+            CarlFightStuff.stickyMisplaced = true;
             return;
         }
         if (event.getMessageAuthor().isYourself()) {

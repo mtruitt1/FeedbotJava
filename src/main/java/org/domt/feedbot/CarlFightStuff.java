@@ -44,10 +44,9 @@ public class CarlFightStuff {
     public static Role[] levelRoles = new Role[5];
     public static Role downedRole = null;
     public static ServerTextChannel fightChannel = null;
+    public static boolean fightBlocked = false;
     public static Message carlHealthBar = null;
-    public static ServerTextChannel answerChannel = null;
-    public static String currentAnswer;
-    public static int answersNeeded = 0;
+    public static Message carlPermaHealthBar = null;
     public static boolean fightActive = false;
     public static HashMap<String, Integer> carlStats = new HashMap<>();
     static {
@@ -67,12 +66,14 @@ public class CarlFightStuff {
     public static int skipCounterAttacks = 0;
     public static int[] bardInspires = new int[3];
     public static int wolfCount = 0;
-    public static List<ServerTextChannel> blockedChannels = new ArrayList<>();
     public static CarlFightClassAttacks classAttacksInfo;
     public static HashMap<User, Instant> userClassFeatureTimes = new HashMap<>();
     public static Timer carlTimer;
     public static Timer barTimer;
-    public static boolean updateNeeded = true;
+    public static boolean stickyMisplaced = true;
+    public static int fullBarHearts = 49;
+    public static int partialHeartState = 5;
+    public static int topicBarTickCounter = 0;
     public static List<User> wildShapedUsers = new ArrayList<>();
     public static List<User> companionPack = new ArrayList<>();
 
@@ -154,12 +155,9 @@ public class CarlFightStuff {
         barTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if (updateNeeded) {
-                    PrintCarlBar();
-                    updateNeeded = false;
-                }
+                CheckBarNeedsUpdate();
             }
-        }, 0, 1000);
+        }, 0, 30 * 1000);
 
         fightActive = true;
     }
@@ -189,12 +187,25 @@ public class CarlFightStuff {
             }
         }
         myMessages.forEach(message -> {message.delete();});
-        updateNeeded = true;
+        if (carlHealthBar != null) {
+            carlHealthBar.delete();
+            carlHealthBar = null;
+        }
+        if (carlPermaHealthBar != null) {
+            carlPermaHealthBar.delete();
+            carlPermaHealthBar = null;
+        }
+        stickyMisplaced = true;
+        topicBarTickCounter = 0;
+        fullBarHearts = 0;
+        partialHeartState = 0;
+        CheckBarNeedsUpdate();
     }
 
     public static void EndFight() {
         ApiCommandUpdater.UpdateAllSlashCommands(false);
         carlHealthBar.delete();
+        carlPermaHealthBar.delete();
         carlTimer.cancel();
         barTimer.cancel();
     }
@@ -315,32 +326,18 @@ public class CarlFightStuff {
         if (sentIn == null) {
             return;
         }
-        if (sentIn.getId() == answerChannel.getId()) {
-            if (blockedChannels.contains(answerChannel)) {
-                slashCommandInteraction.createImmediateResponder()
-                        .setContent("You can't submit an answer to a channel with an active zombie wave in it! **Check the pins to find the message and help!**")
-                        .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
-                        .respond();
-            } else {
-                String answer = slashCommandInteraction.getOptionStringValueByName("answer").orElse(null);
-                slashCommandInteraction.createImmediateResponder()
-                        .setContent("Thanks for submitting your guess! If you're right, you'll receive a DM soon!\nIn the interest of keeping the puzzles fun for others, please don't share the solution if you're right!")
-                        .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
-                        .respond();
-                new MessageBuilder()
-                        .setContent("**Carl puzzle**\nGuess from " + slashCommandInteraction.getUser().getMentionTag() + ": " + answer)
-                                .addComponents(ActionRow.of(
-                                        Button.success("guessCorrect", "Correct guess!"),
-                                        Button.danger("guessFailure", "Incorrect guess")
-                                ))
-                                        .send(Main.sandbox);
-            }
-        } else {
-            slashCommandInteraction.createImmediateResponder()
-                    .setContent("Wrong channel for this answer!")
-                    .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
-                    .respond();
-        }
+        String answer = slashCommandInteraction.getOptionStringValueByName("answer").orElse(null);
+        slashCommandInteraction.createImmediateResponder()
+                .setContent("Thanks for submitting your guess! If you're right, you'll receive a DM soon!\nIn the interest of keeping the puzzles fun for others, please don't share the solution if you're right!")
+                .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
+                .respond();
+        new MessageBuilder()
+                .setContent("**Carl puzzle**\nGuess from " + slashCommandInteraction.getUser().getMentionTag() + ": " + answer)
+                .addComponents(ActionRow.of(
+                        Button.success("guessCorrect", "Correct guess!"),
+                        Button.danger("guessFailure", "Incorrect guess")
+                ))
+                .send(Main.sandbox);
     }
 
     public static void GuessRespond(ButtonInteraction buttonInteraction) {
@@ -395,27 +392,100 @@ public class CarlFightStuff {
         return finalDamage;
     }
 
-    public static void PrintCarlBar() {
-        String carlHealth = "**CARL HEALTH:** ";
+    public static void CheckBarNeedsUpdate() {
+        topicBarTickCounter--;
         double ratio = (double)carlStats.get("HP") / (double)carlStats.get("maxHP");
-        int red = (int)Math.ceil(ratio * 50);
-        System.out.println(ratio + " " + red);
-        for (int i = 0; i < 50; i++) {
-            if (i < red) {
-                carlHealth += ":heart:";
-            } else {
-                carlHealth += ":white_small_square:";
+        double heartValue = (double)carlStats.get("maxHP") / 50.0;
+        int full = (int)Math.ceil(ratio * 50);
+        full--;
+        double oneHeartPercentage = ((double)carlStats.get("HP") - (heartValue * full)) / heartValue;
+        System.out.println(ratio + ", " + full + " : " + oneHeartPercentage + "/" + heartValue);
+        int partial = 0;
+        for (int i = 1; i < 6; i++) {
+            double d = i * 0.2;
+            if (oneHeartPercentage <= d) {
+                partial = i;
+                break;
             }
         }
-        carlHealth += "\n*(This message is semi-sticky! It will only update once a second as needed.)*";
-        if (carlHealthBar != null) {
-            carlHealthBar.delete();
+        String carlHealth = GetBar();
+        if (full != fullBarHearts || partial != partialHeartState) {
+            fullBarHearts = full;
+            partialHeartState = partial;
+            carlHealth = GetBar();
+            if (carlPermaHealthBar != null) {
+                carlPermaHealthBar.edit("**CARL HEALTH:**\n" + carlHealth).join();
+            } else {
+                try {
+                    carlPermaHealthBar = fightChannel.sendMessage("**CARL HEALTH:**\n" + carlHealth).join();
+                    carlPermaHealthBar.pin();
+                } catch (Exception e) {
+                    Main.sandbox.sendMessage("Can't sent messages to " + fightChannel.getMentionTag() + "!");
+                }
+            }
+            if (topicBarTickCounter <= 0) {
+                try {
+                    fightChannel.updateTopic(carlHealth);
+                    topicBarTickCounter = 10;
+                } catch (Exception e) {
+                    System.out.println("Can't set channel topic!");
+                }
+            }
+            if (carlHealthBar != null) {
+                carlHealthBar.delete().join();
+                carlHealthBar = null;
+            }
+            try {
+                carlHealthBar = fightChannel.sendMessage("**CARL HEALTH:**\n" + carlHealth + "\n*(This message is semi-sticky! It'll send as needed up to once every thirty seconds)*").join();
+                stickyMisplaced = false;
+            } catch (Exception e) {
+                Main.sandbox.sendMessage("Can't sent messages to " + fightChannel.getMentionTag() + "!");
+            }
         }
-        try {
-            carlHealthBar = fightChannel.sendMessage(carlHealth).join();
-        } catch (Exception e) {
-            Main.sandbox.sendMessage("Can't sent messages to " + fightChannel.getMentionTag() + "!");
+        if (stickyMisplaced) {
+            if (carlHealthBar != null) {
+                carlHealthBar.delete().join();
+                carlHealthBar = null;
+            }
+            try {
+                carlHealthBar = fightChannel.sendMessage("**CARL HEALTH:**\n" + carlHealth + "\n*(This message is semi-sticky! It'll send as needed up to once every thirty seconds)*").join();
+                stickyMisplaced = false;
+            } catch (Exception e) {
+                Main.sandbox.sendMessage("Can't sent messages to " + fightChannel.getMentionTag() + "!");
+            }
         }
+    }
+
+    public static String GetBar() {
+        String heartsString = "";
+        System.out.println(fullBarHearts + " " + partialHeartState);
+        String[] hearts = new String[] {
+                "\u1806\u2661",
+                ":broken_heart:",
+                ":heart:",
+                ":orange_heart:",
+                ":yellow_heart:",
+                ":green_heart:"
+        };
+        for (int i = 0; i < 50; i++) {
+            if (i < fullBarHearts) {
+                heartsString += ":green_heart:";
+            } else if (i == fullBarHearts) {
+                for (int h = 1; h < 6; h++) {
+                    if (partialHeartState <= h) {
+                        heartsString += hearts[h];
+                        break;
+                    }
+                }
+            } else {
+                if (i == 0) {
+                    heartsString += "\u2661";
+                } else {
+                    heartsString += hearts[0];
+                }
+            }
+        }
+        return heartsString;
     }
 
     public static boolean CarlCounter(User user) {
@@ -492,9 +562,10 @@ public class CarlFightStuff {
                     .respond();
             return null;
         }
-        if (blockedChannels.contains(sentIn)) {
+        if (fightBlocked) {
             interaction.createImmediateResponder()
                     .setContent("Carl is currently blocked by zombies! He can't be hit by normal attacks until the zombies are gone! Check pins to find the wave(s)!")
+                    .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
                     .respond();
             return null;
         }
@@ -600,7 +671,7 @@ public class CarlFightStuff {
         if (userClassFeatureTimes.containsKey(slashCommandInteraction.getUser())) {
             Instant lastUse = userClassFeatureTimes.get(slashCommandInteraction.getUser());
             Instant thisUse = slashCommandInteraction.getCreationTimestamp();
-            if (thisUse.minusSeconds(60 * 0).isBefore(lastUse)) {
+            if (thisUse.minusSeconds(60 * 3).isBefore(lastUse)) {
                 slashCommandInteraction.createImmediateResponder()
                         .setContent(slashCommandInteraction.getUser().getMentionTag() + ": You can only use your class feature once every three minutes!")
                         .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
@@ -994,6 +1065,14 @@ public class CarlFightStuff {
     }
 
     public static void EndEarly(ButtonInteraction buttonInteraction) {
+        Message source = buttonInteraction.getMessage();
+        if (!source.getContent().contains(buttonInteraction.getUser().getMentionTag())) {
+            buttonInteraction.createImmediateResponder()
+                    .setContent(buttonInteraction.getUser().getMentionTag() + " you can't use another player's class powers!")
+                    .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
+                    .respond();
+            return;
+        }
         wildShapedUsers.remove(buttonInteraction.getUser());
         buttonInteraction.createImmediateResponder()
                 .setContent(buttonInteraction.getUser().getMentionTag() + " ends their wildshape early!")
@@ -1535,7 +1614,8 @@ public class CarlFightStuff {
             message += "\n" + stat + " = " + carlStats.get(stat);
         }
         Main.sandbox.sendMessage(message);
-        PrintCarlBar();
+        fullBarHearts = -1;
+        partialHeartState = -1;
     }
 
     public static SlashCommandBuilder ZombieWaveBuilder() {
@@ -1557,8 +1637,8 @@ public class CarlFightStuff {
                 .setContent("Attempting to send a wave of " + slashCommandInteraction.getOptionLongValueByName("size").get() + " zombies to " + toBlock.getMentionTag() + ".")
                 .setFlags(InteractionCallbackDataFlag.EPHEMERAL)
                 .respond();
-        if (!blockedChannels.contains(toBlock)) {
-            blockedChannels.add(toBlock);
+        if (toBlock == fightChannel) {
+            fightBlocked = true;
         }
         try {
             toBlock.sendMessage(ZombieMessage(slashCommandInteraction.getOptionLongValueByName("size").get().intValue(), 0)).whenComplete((message, throwable) -> {
@@ -1635,7 +1715,6 @@ public class CarlFightStuff {
             Reaction attack = message.getReactionByEmoji("\u2694").get();
             Role halfLevel = Main.activeServer.getRolesByName("Half-level").get(0);
             fightChannel.sendMessage("Zombie wave from " + message.getServerTextChannel().get().getMentionTag() + " has been defeated!");
-            blockedChannels.remove(message.getServerTextChannel().get());
             for (User helper : attack.getUsers().get()) {
                 User servHelper = Main.activeServer.requestMember(helper).join();
                 if (helper.isYourself()) {
@@ -1652,6 +1731,9 @@ public class CarlFightStuff {
                         helper.addRole(halfLevel);
                     }
                 }
+            }
+            if (message.getChannel().asServerTextChannel().get() == fightChannel) {
+                fightBlocked = false;
             }
             message.delete();
         } catch (Exception e) {
